@@ -9,8 +9,32 @@
 //    list.insertLast('b');
 //    list.insertLast('c');
 //    list.insertLast('d');
-//    fromLast(list, 2).data // 'b'
 
-function fromLast(list, n) {}
+const { LinkedList } = require("./linkedlist");
+
+//    fromLast(list, 2).data // 'b'
+function fromLast(list, n) {
+        let forward = list.head;
+        let backward = list.head;
+
+        for (let i = 0; i < n; i++) {
+            forward = forward.next;
+        };
+
+        while (forward.next) {
+            backward = backward.next;
+            forward = forward.next;
+        }
+        return backward; 
+}
+
+// const list = new LinkedList();
+// list.insertLast('a');
+// list.insertLast('b');
+// list.insertLast('c');
+// list.insertLast('d');
+
+// console.log(fromLast(list, 2).data);
+
 
 module.exports = fromLast;

@@ -17,6 +17,17 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+function steps(n) {
+    let matrix = Array.from( {length: n}, () => new Array(n).fill(' '));
+
+    for (let i = 0; i < n; i++) {
+        for (let k = 0; k <= i; k++) {
+            matrix[i][k] = '#';
+        }
+
+        console.log(matrix[i].join(''));
+    }
+}
+
 
 module.exports = steps;

@@ -12,6 +12,31 @@
 //   c.next = b;
 //   circular(l) // true
 
-function circular(list) {}
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
+};
+class Linkedlist {
+    costructor() {
+        this.head = null;
+    }
+}
+function circular(list) {
+    if (!list.head) return false;
+
+    let slow = list.head;
+    let fast = list.head;
+
+    while (fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+
+        if (slow === fast) return true;
+    }
+
+    return false;
+}
 
 module.exports = circular;

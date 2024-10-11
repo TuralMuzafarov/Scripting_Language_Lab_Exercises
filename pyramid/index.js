@@ -14,6 +14,19 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+function pyramid(n) {
+    const colSize = 2 * n - 1;
+    let matrix = Array.from( { length: n }, () => new Array(colSize).fill(' '));
+    let middleIndex = n - 1;
+    for (let i = 0; i <= matrix.length - 1; i++) {
+        for  (let k = middleIndex - i; k <= middleIndex + i; k++) {
+            matrix[i][k] = '#';
+        }
+    }
+
+    for (let row of matrix) {
+        console.log(row.join(''));
+    }
+}
 
 module.exports = pyramid;
